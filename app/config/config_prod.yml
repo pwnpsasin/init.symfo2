@@ -1,0 +1,35 @@
+imports:
+    - { resource: config.yml }
+    - { resource: build_id.yml }
+
+#framework:
+#    validation:
+#        cache: apc
+
+#doctrine:
+#    orm:
+#        metadata_cache_driver: apc
+#        result_cache_driver: apc
+#        query_cache_driver: apc
+twig:
+    cache: true
+    globals:
+        ga_tracking: UA-0000-00
+
+
+monolog:
+    handlers:
+        # main:
+        #     type:         fingers_crossed
+        #     action_level: error
+        #     handler:      nested
+        main:
+            type:  stream
+            path:  %kernel.logs_dir%/%kernel.environment%.log
+            level: info
+        # nested:
+        #     type:  stream
+        #     path:  %kernel.logs_dir%/%kernel.environment%.log
+        #     level: debug
+
+
